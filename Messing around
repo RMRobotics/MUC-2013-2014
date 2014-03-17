@@ -1,0 +1,46 @@
+int test = 6;
+
+if(test != 6) {
+  print("yay it worked");
+}else if (test !=5) {
+  print("test is not equal to five");
+}else {
+
+}
+
+int grade = 100;
+
+if(grade > 89) {
+ print "You got an a";
+}
+if(grade > 79) {
+ print "you got a b";
+}
+
+if(grade > 89) {
+print "You got an a";
+}else if(grade >79) {
+print "you got a b";
+}
+
+if () {
+}else {
+}
+
+
+bool test = true;
+while (1==1) {
+  print "test";
+  test = false;
+}
+
+for(int i=0,i<11,i*50) {
+  print "test";
+}
+
+
+
+
+
+
+
