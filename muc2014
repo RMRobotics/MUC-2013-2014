@@ -1,3 +1,51 @@
-asdf
-asdfklas;ldkfj;lksdfj
 
+
+// ==================================================
+// ==================================================
+
+////////////////////////////////////////////////////////////
+//                                                        //
+//            RICHARD MONTGOMERY ROBOTICS TEAM            //
+//                       8121                             //
+//       CODE FOR THE 2014 ION MINI URBAN CHALLENGE       //
+// PRIMARY VERSION FOR WASHINGTON DC REGIONAL COMPETITION //
+//                                                        //
+////////////////////////////////////////////////////////////
+
+// ==================================================
+// ==================================================
+
+// IDEAS
+// Offset one sensor to try to "keep" line in middle?
+// Offset one pair of sensors from the other - use the wider one to find parking spaces?
+// Handle points at which there will be a missing side
+// Handle points at which there will be a missing stop sign
+// Determining stop sign (e.g. when running over stop line in intersection)
+
+// Doing pivot turn: turn outer wheel pair until
+// Roundabout: angle toward outside and constantly turn back in - need to handle stop sign
+//
+
+// CONSTANTS
+
+
+// ==================================================
+// ==================================================
+
+// FUNCTION DECLARATIONS
+void goStraight(string side, bool untilGap); //
+void park(string side, int lot);
+void unpark(string side); //side to stop on
+void turn(string side); //handle roundabout?
+void drive():
+
+
+
+// ==================================================
+// ==================================================
+
+// MAIN PROGRAM
+
+task main()
+{
+}
