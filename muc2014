@@ -1,5 +1,4 @@
 
-
 // ==================================================
 // ==================================================
 
@@ -38,6 +37,7 @@ void park(string side, int lot);
 void unpark(string side); //side to stop on
 void turn(string side); //handle roundabout?
 void drive():
+void setMotorValues(int direction);
 
 
 
@@ -46,6 +46,48 @@ void drive():
 
 // MAIN PROGRAM
 
+setMotorValues(int driveDirection){
+  if(driveDirection==1){
+    motor1 = 100;
+    motor2 = 100;
+  }elseif(driveDirection==2){ //LEFT
+    motor1 = -100;
+    motor2 = 100;
+  }elseif(driveDirection==3){ //RIGHT
+    motor1 = 100;
+    motor2 = -100;
+  }elseif(driveDirection==4){ //REVERSE
+    motor1 = -100;
+    motor2 = -100;
+  }
+}
+
+goStraight(colorLeftFront,colorRightFront,colorLeftBack,colorRightBack,bool driveDirection,colorSensor){
+  while(driveDirection ==True){ //DRIVEDIRECTION - Telling it to Drive Straight
+    if(colorLeftBack ==WHITE && colorRightBack ==WHITE){
+      DRIVESTRAIGHT
+    }elseif(colorLeftBack==WHITE && colorRightBack != COLOR){
+      colorSensor=1;
+      if(colorLeftFront!=COLOR OF colorLeftBack){
+        DRIVESTRAIGHT
+      }elseif(colorLeftFront==COLOR OF colorLeftBack){
+        SHIFT LEFT AND DRIVE STRAIGHT
+      }
+    }elseif(colorRightBack==WHITE && colorLeftBack != COLOR){
+      colorSensor=2;
+      if(colorRightFront!=COLOR OF colorRightBack){
+        DRIVESTRAIGHT
+      }elseif(colorRightFront==COLOR OF colorRightBack){
+        SHIFT RIGHT AND DRIVE STRAIGHT
+      }
+    }
+    if(colorLeftBack!=COLOR && colorSensor==1){
+      SHIFT RIGHT AND DRIVE STRAIGHT
+    }elseif{colorRightBack!=COLOR && colorSensor==2){
+      SHIFT LEFT AND DRIVE STRAIGHT
+    }
+  }
+}
 task main()
 {
 }
