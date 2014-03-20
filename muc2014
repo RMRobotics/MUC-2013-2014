@@ -31,13 +31,14 @@
 // ==================================================
 
 // FUNCTION DECLARATIONS
-void goStraight(string side, bool untilGap); //
+void goStraight(string side, bool untilGap); //"both", "left", "right"
 void park(string side, int lot);
 void unpark(string side); //side to stop on
 void turn(int direction, int grade); //handle roundabout?
 void drive():
 void setMotorValues(int direction, int grade);
 int[] getSensorValues(); //returns Black, Blue, Green, Yellow, Red, White, ???
+                         //[0] = front left; [1] = front right; [2] = back left; [3] = back right;
 
 
 
@@ -46,7 +47,7 @@ int[] getSensorValues(); //returns Black, Blue, Green, Yellow, Red, White, ???
 
 // MAIN PROGRAM
 
-setMotorValues(int direction, int grade){
+void setMotorValues(int direction, int grade){
   if(driveDirection==1){
     motor1 = 100;
     motor2 = 100;
@@ -62,30 +63,37 @@ setMotorValues(int direction, int grade){
   }
 }
 
-goStraight(colorLeftFront,colorRightFront,colorLeftBack,colorRightBack,bool driveDirection,colorSensor){
-  while(driveDirection ==True){ //DRIVEDIRECTION - Telling it to Drive Straight
-    if(colorLeftBack ==WHITE && colorRightBack ==WHITE){
+void goStraight(string side, bool untilGap){ //"both", "left", "right"
+  string colorRB = sensorVals[3];
+  string colorLB = sensorVals[2];
+  string colorRF = sensorVals[1];
+  string colorLF = sensorVals[0];
+  if (side.equals("both")) {
+    if(colorLB ==WHITE && colorRB ==WHITE){
       DRIVESTRAIGHT
-    }elseif(colorLeftBack==WHITE && colorRightBack != COLOR){
+    }elseif(colorLB==WHITE && colorRB != COLOR){
       colorSensor=1;
-      if(colorLeftFront!=COLOR OF colorLeftBack){
+      if(colorLF!=COLOR OF colorLB){
         DRIVESTRAIGHT
-      }elseif(colorLeftFront==COLOR OF colorLeftBack){
+      }elseif(colorLF==COLOR OF colorLB){
         SHIFT LEFT AND DRIVE STRAIGHT
       }
-    }elseif(colorRightBack==WHITE && colorLeftBack != COLOR){
+    }elseif(colorRB==WHITE && colorLB != COLOR){
       colorSensor=2;
-      if(colorRightFront!=COLOR OF colorRightBack){
+      if(colorRF!=COLOR OF colorRB){
         DRIVESTRAIGHT
-      }elseif(colorRightFront==COLOR OF colorRightBack){
+      }elseif(colorRF==COLOR OF colorRB){
         SHIFT RIGHT AND DRIVE STRAIGHT
       }
     }
-    if(colorLeftBack!=COLOR && colorSensor==1){
+    if(colorLB!=COLOR && colorSensor==1){
       SHIFT RIGHT AND DRIVE STRAIGHT
-    }elseif{colorRightBack!=COLOR && colorSensor==2){
+    }elseif{colorRB!=COLOR && colorSensor==2){
       SHIFT LEFT AND DRIVE STRAIGHT
     }
+  }else if (side.equals("left")) {
+  
+  }else {
   }
 }
 
@@ -97,6 +105,7 @@ int[] getSensorValues() {
   sensorVals[3] = SnesorValue[brColor];
   return sensorVals[];
 }
+
 task main()
 {
 }
