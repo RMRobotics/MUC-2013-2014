@@ -1,0 +1,18 @@
+int[] getSensorValues(); //returns Black, Blue, Green, Yellow, Red, White, ???
+
+task main(){
+  int sensorVals[4];
+  while(True){
+    sensorVals[] = getSensorValues();
+    nxtDisplayBigTextLine(3, "%d", sensorVals[0]);
+  }
+}
+
+int[] getSensorValues() {  
+  int sensorVals[4];
+  sensorVals[0] = SensorValue[flColor];
+  sensorVals[1] = SensorValue[frColor];
+  sensorVals[2] = SensorValue[blColor];
+  sensorVals[3] = SnesorValue[brColor];  
+  return sensorVals[];
+}
