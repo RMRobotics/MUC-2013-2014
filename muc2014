@@ -1,3 +1,93 @@
-asdf
-asdfklas;ldkfj;lksdfj
 
+// ==================================================
+// ==================================================
+
+////////////////////////////////////////////////////////////
+//                                                        //
+//            RICHARD MONTGOMERY ROBOTICS TEAM            //
+//                       8121                             //
+//       CODE FOR THE 2014 ION MINI URBAN CHALLENGE       //
+// PRIMARY VERSION FOR WASHINGTON DC REGIONAL COMPETITION //
+//                                                        //
+////////////////////////////////////////////////////////////
+
+// ==================================================
+// ==================================================
+
+// IDEAS
+// Offset one sensor to try to "keep" line in middle?
+// Offset one pair of sensors from the other - use the wider one to find parking spaces?
+// Handle points at which there will be a missing side
+// Handle points at which there will be a missing stop sign
+// Determining stop sign (e.g. when running over stop line in intersection)
+
+// Doing pivot turn: turn outer wheel pair until
+// Roundabout: angle toward outside and constantly turn back in - need to handle stop sign
+//
+
+// CONSTANTS
+
+
+// ==================================================
+// ==================================================
+
+// FUNCTION DECLARATIONS
+void goStraight(string side, bool untilGap); //
+void park(string side, int lot);
+void unpark(string side); //side to stop on
+void turn(string side); //handle roundabout?
+void drive():
+void setMotorValues(int direction);
+
+
+
+// ==================================================
+// ==================================================
+
+// MAIN PROGRAM
+
+setMotorValues(int driveDirection){
+  if(driveDirection==1){
+    motor1 = 100;
+    motor2 = 100;
+  }elseif(driveDirection==2){ //LEFT
+    motor1 = -100;
+    motor2 = 100;
+  }elseif(driveDirection==3){ //RIGHT
+    motor1 = 100;
+    motor2 = -100;
+  }elseif(driveDirection==4){ //REVERSE
+    motor1 = -100;
+    motor2 = -100;
+  }
+}
+
+goStraight(colorLeftFront,colorRightFront,colorLeftBack,colorRightBack,bool driveDirection,colorSensor){
+  while(driveDirection ==True){ //DRIVEDIRECTION - Telling it to Drive Straight
+    if(colorLeftBack ==WHITE && colorRightBack ==WHITE){
+      DRIVESTRAIGHT
+    }elseif(colorLeftBack==WHITE && colorRightBack != COLOR){
+      colorSensor=1;
+      if(colorLeftFront!=COLOR OF colorLeftBack){
+        DRIVESTRAIGHT
+      }elseif(colorLeftFront==COLOR OF colorLeftBack){
+        SHIFT LEFT AND DRIVE STRAIGHT
+      }
+    }elseif(colorRightBack==WHITE && colorLeftBack != COLOR){
+      colorSensor=2;
+      if(colorRightFront!=COLOR OF colorRightBack){
+        DRIVESTRAIGHT
+      }elseif(colorRightFront==COLOR OF colorRightBack){
+        SHIFT RIGHT AND DRIVE STRAIGHT
+      }
+    }
+    if(colorLeftBack!=COLOR && colorSensor==1){
+      SHIFT RIGHT AND DRIVE STRAIGHT
+    }elseif{colorRightBack!=COLOR && colorSensor==2){
+      SHIFT LEFT AND DRIVE STRAIGHT
+    }
+  }
+}
+task main()
+{
+}
