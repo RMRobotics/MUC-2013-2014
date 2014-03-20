@@ -1,4 +1,3 @@
-
 // ==================================================
 // ==================================================
 
@@ -35,9 +34,10 @@
 void goStraight(string side, bool untilGap); //
 void park(string side, int lot);
 void unpark(string side); //side to stop on
-void turn(string side); //handle roundabout?
+void turn(int direction, int grade); //handle roundabout?
 void drive():
-void setMotorValues(int direction);
+void setMotorValues(int direction, int grade);
+int[] getSensorValues(); //returns Black, Blue, Green, Yellow, Red, White, ???
 
 
 
@@ -46,7 +46,7 @@ void setMotorValues(int direction);
 
 // MAIN PROGRAM
 
-setMotorValues(int driveDirection){
+setMotorValues(int direction, int grade){
   if(driveDirection==1){
     motor1 = 100;
     motor2 = 100;
@@ -87,6 +87,15 @@ goStraight(colorLeftFront,colorRightFront,colorLeftBack,colorRightBack,bool driv
       SHIFT LEFT AND DRIVE STRAIGHT
     }
   }
+}
+
+int[] getSensorValues() {
+  int sensorVals[4];
+  sensorVals[0] = SensorValue[flColor];
+  sensorVals[1] = SensorValue[frColor];
+  sensorVals[2] = SensorValue[blColor];
+  sensorVals[3] = SnesorValue[brColor];
+  return sensorVals[];
 }
 task main()
 {
